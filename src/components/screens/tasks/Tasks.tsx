@@ -1,49 +1,20 @@
 import styles from "./Tasks.module.scss";
 import Layout from "@/components/layout/Layout";
 import TaskItem from "@/components/ui/task/TaskItem";
-import AddTaskForm from "@/components/modals/add-task-form/AddTaskForm";
+import AddTaskForm from "@/components/add-task-form/AddTaskForm";
 import { useState } from "react";
 import Modal from "@/components/ui/modal/Modal";
 import { ITask } from "@/interfaces/task.interface";
 import {ETaskStatuses} from '@/enums/task.enum';
+import {dataTasks} from '@/data/tasks'
 
 const Tasks = () => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "Task name",
-      text: "description of the task",
-      status: "archived",
-      created: Date.now(),
-    },
-    {
-      id: 2,
-      name: "Task name 2",
-      text: "description of the task",
-      status: "archived",
-      created: Date.now(),
-    },
-    {
-      id: 3,
-      name: "Task name 3",
-      text: "description of the task",
-      status: "archived",
-      created: Date.now(),
-    },
-    {
-      id: 4,
-      name: "Task name 4",
-      text: "description of the task",
-      status: "archived",
-      created: Date.now(),
-    },
-  ]);
-
+  const [tasks, setTasks] = useState(dataTasks);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const archivedTasks = tasks.filter((task) => task.status === "archived");
-  const inProgressTasks = tasks.filter((task) => task.status === "in_progress");
-  const completedTasks = tasks.filter((task) => task.status === "completed");
+  const archivedTasks = tasks.filter((task) => task.status === ETaskStatuses.Archived);
+  const inProgressTasks = tasks.filter((task) => task.status === ETaskStatuses.InProgress);
+  const completedTasks = tasks.filter((task) => task.status === ETaskStatuses.Completed);
 
   function createTask(newTask: ITask) {
     setTasks([...tasks, newTask]);

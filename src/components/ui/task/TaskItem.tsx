@@ -8,12 +8,12 @@ const TaskItem: FC<ITaskSingle> = ({ task, remove, complete }) => {
   return (
     <div
       className={`${styles.item} ${
-        task.status === "completed" ? styles.active : ""
+        task.status === ETaskStatuses.Completed ? styles.active : ""
       }`}
     >
       <div className={styles.overhead}>
         <h4 className={styles.title}>{task.name}</h4>
-        <button className="button red" onClick={() => remove?.(task.id)}>
+        <button className="button pink" onClick={() => remove?.(task.id)}>
           <Image src="/icons/close.svg" alt="icon" width={20} height={20} />
         </button>
       </div>
