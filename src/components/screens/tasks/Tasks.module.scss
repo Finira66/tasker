@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.title {
+  margin-bottom: 30px;
+}
+
+.button {
+  margin-bottom: 30px;
+}

@@ -1,0 +1,25 @@
+.item {
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 2px solid deeppink;
+  width: auto;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.overhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
