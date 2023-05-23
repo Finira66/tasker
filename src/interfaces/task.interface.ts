@@ -8,5 +8,6 @@ export interface ITask {
 
 export interface ITaskSingle {
   task: ITask;
-  removeTask?: (id: number) => void;
+  remove?: (id: number) => void;
+  complete?: (id: number) => void;
 }

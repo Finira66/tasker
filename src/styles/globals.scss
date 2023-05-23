@@ -23,7 +23,7 @@ a {
 
 .container {
   width: 100%;
-  padding: 16px;
+  padding: 30px 16px;
 }
 
 button {
@@ -36,6 +36,10 @@ button {
   font-size: 26px;
   color: #1e1e1e;
   font-weight: 700;
+  &--md {
+    margin-bottom: 14px;
+    font-size: 22px;
+  }
 }
 
 .button {
@@ -56,6 +60,9 @@ button {
     align-items: center;
     justify-content: center;
     margin: -8px -8px 0 0;
+    &:hover {
+      background: #ee1389;
+    }
   }
 }
 
