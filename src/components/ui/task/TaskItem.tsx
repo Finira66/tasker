@@ -20,7 +20,7 @@ const TaskItem: FC<ITaskSingle> = ({ task, remove, complete }) => {
       <p className={styles.text}>{task.text}</p>
       <div className={styles.tags}>
         {task.tags?.map((tag, index) => (
-          <div className={styles.tag} key={index}>
+          <div className={`${styles.tag}`} key={index}>
             {tag}
           </div>
         ))}

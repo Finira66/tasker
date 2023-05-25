@@ -1,0 +1,47 @@
+.square {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ee1389;
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #3db3be;
+    opacity: 0;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    &:checked + .square {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}

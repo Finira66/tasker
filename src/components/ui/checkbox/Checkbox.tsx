@@ -6,15 +6,17 @@ const Checkbox: FC<{
   handleOnChange: ChangeEventHandler;
   value: string;
   text: string;
-}> = ({ selected, handleOnChange, text, value }) => {
+  className: string;
+}> = ({ selected, handleOnChange, text, value, className }) => {
   return (
-    <div className="checkbox">
+    <div className={`${styles.checkbox} ${className}`}>
       <input
         type="checkbox"
         value={value}
         checked={selected}
         onChange={handleOnChange}
       />
+      <div className={styles.square}></div>
       <label htmlFor="">{text}</label>
     </div>
   );

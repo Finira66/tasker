@@ -1,13 +1,14 @@
-import React, { FC, useState } from "react";
+import React, {FC, useEffect, useState} from "react";
 import { ITask } from "@/interfaces/task.interface";
 import { ETaskStatuses, ETaskTags } from "@/enums/task.enum";
 import Checkbox from "@/components/ui/checkbox/Checkbox";
 
 interface AddTaskFormProps {
   create: (task: ITask) => void;
+  isModalVisible: boolean;
 }
 
-const AddTaskForm: FC<AddTaskFormProps> = ({ create }) => {
+const AddTaskForm: FC<AddTaskFormProps> = ({ create, isModalVisible }) => {
   const emptyTask = {
     id: 0,
     name: "",
@@ -44,6 +45,11 @@ const AddTaskForm: FC<AddTaskFormProps> = ({ create }) => {
   function addNewTask(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
+    if (task.name.trim().length === 0 || task.text.trim().length === 0) {
+      alert('Please fill in all fields in the form')
+      return;
+    }
+
     create({
       ...task,
       id: Date.now(),
@@ -65,6 +71,12 @@ const AddTaskForm: FC<AddTaskFormProps> = ({ create }) => {
     }
   };
 
+  useEffect(() => {
+    if (!isModalVisible) {
+      clearForm();
+    }
+  }, [isModalVisible])
+
   return (
     <form className="form" onSubmit={addNewTask}>
       <div className="form__title">Create a new task</div>
@@ -84,16 +96,19 @@ const AddTaskForm: FC<AddTaskFormProps> = ({ create }) => {
           className="input form__area"
         />
 
-        <div className="title title--sm">Select tags:</div>
-        {tagsCheckboxes.map((checkbox, index) => (
-          <Checkbox
-            key={checkbox.id}
-            value={checkbox.name}
-            text={checkbox.label}
-            selected={checkbox.isChecked}
-            handleOnChange={(e) => handleCheckboxChange(e, index)}
-          />
-        ))}
+        <div className="title title--sm form__label">Select tags:</div>
+        <div className="form__checkboxes">
+          {tagsCheckboxes.map((checkbox, index) => (
+            <Checkbox
+              key={checkbox.id}
+              value={checkbox.label}
+              text={checkbox.label}
+              selected={checkbox.isChecked}
+              handleOnChange={(e) => handleCheckboxChange(e, index)}
+              className="form__checkbox"
+            />
+          ))}
+        </div>
       </div>
 
       <button className="button">Create task</button>

@@ -50,7 +50,7 @@ const Tasks = () => {
         </button>
 
         <Modal visible={modalVisible} setVisible={setModalVisible}>
-          <AddTaskForm create={createTask} />
+          <AddTaskForm create={createTask} isModalVisible={modalVisible} />
         </Modal>
 
         <div className={styles.grid}>

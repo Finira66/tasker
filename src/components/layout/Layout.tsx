@@ -5,7 +5,7 @@ import {FC, PropsWithChildren} from 'react';
 const Layout: FC<PropsWithChildren> = ({children}) => {
   return <>
     <Header />
-    <main>{children}</main>
+    <main className="main-content">{children}</main>
     <Footer />
   </>
 };

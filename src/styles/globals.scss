@@ -4,6 +4,16 @@
   margin: 0;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 textarea {
   resize: none;
   outline: none;
@@ -24,6 +34,10 @@ a {
 .container {
   width: 100%;
   padding: 30px 16px;
+}
+
+.main-content {
+  flex: 1 0 auto;
 }
 
 button {
@@ -48,12 +62,12 @@ button {
 .button {
   padding: 8px 18px;
   border-radius: 6px;
-  background: lightgreen;
+  background: #3db3be;
   font-size: 14px;
   font-weight: 600;
   transition: 0.2s linear;
   &:hover {
-    background: #7ed97e;
+    background: #3db3be;
   }
 
   &.pink {
@@ -88,11 +102,25 @@ button {
       margin-bottom: 0;
     }
   }
+  &__checkboxes {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  &__checkbox {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__label {
+    margin-bottom: 10px;
+  }
 }
 
 .input {
   width: 100%;
-  border: 1px solid deeppink;
+  border: 2px solid deeppink;
   display: block;
   padding: 10px 8px;
   border-radius: 6px;
