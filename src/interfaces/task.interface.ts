@@ -4,6 +4,7 @@ export interface ITask {
   text: string;
   status: string;
   created: number;
+  tags?: string[];
 }
 
 export interface ITaskSingle {

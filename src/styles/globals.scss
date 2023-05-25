@@ -40,6 +40,9 @@ button {
     margin-bottom: 14px;
     font-size: 22px;
   }
+  &--sm {
+    font-size: 16px;
+  }
 }
 
 .button {
@@ -66,7 +69,7 @@ button {
   }
 }
 
-.modal {
+.form {
   background: #fff;
   padding: 20px 30px 30px 30px;
   border-radius: 14px;

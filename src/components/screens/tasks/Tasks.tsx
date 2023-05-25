@@ -40,7 +40,7 @@ const Tasks = () => {
   return (
     <Layout>
       <div className="container">
-        <h2 className={`${styles.title} title`}>My Tasks list</h2>
+        <div className={`${styles.title} title`}>My Tasks list</div>
 
         <button
           className={`${styles.button} button`}

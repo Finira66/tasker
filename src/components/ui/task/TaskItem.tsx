@@ -18,6 +18,13 @@ const TaskItem: FC<ITaskSingle> = ({ task, remove, complete }) => {
         </button>
       </div>
       <p className={styles.text}>{task.text}</p>
+      <div className={styles.tags}>
+        {task.tags?.map((tag, index) => (
+          <div className={styles.tag} key={index}>
+            {tag}
+          </div>
+        ))}
+      </div>
       <button className="button" onClick={() => complete?.(task.id)}>
         {task.status === ETaskStatuses.Archived
           ? "Accept"
